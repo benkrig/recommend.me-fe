@@ -69,7 +69,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/moviesFE-production-api:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/moviesFE-production-api:*"
                           }
                         ]
                       },
@@ -80,7 +80,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/moviesFE-production-api:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/moviesFE-production-api:*:*"
                           }
                         ]
                       }
@@ -109,7 +109,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/moviesFE/production/1543551425093-2018-11-30T04:17:05.093Z/moviesFE.zip"
+                "S3Key": "serverless/moviesFE/production/1543552702356-2018-11-30T04:38:22.356Z/moviesFE.zip"
               },
               "FunctionName": "moviesFE-production-api",
               "Handler": "lambda.universal",
@@ -128,14 +128,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ApiLambdaVersionqNMX69JkYmlMfQHeKsyz7jfUoNdOi43RGwHO2qgwc": {
+          "ApiLambdaVersionaR2xoJbm3CwFq6nzQ4jnXaQbaWDCV5Gwu5Lr7CII": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "v2ER8DX3BGK827e0XetzA6ldWGHnV8yqF55/2vjuHHo="
+              "CodeSha256": "3gpgBIHz0k4TVIu5W1PqUjSp1SeoWDBJXLHtAsNVp+4="
             }
           },
           "ApiGatewayRestApi": {
@@ -184,11 +184,7 @@
                   "Fn::Join": [
                     "",
                     [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
+                      "arn:aws:apigateway:",
                       {
                         "Ref": "AWS::Region"
                       },
@@ -230,11 +226,7 @@
                   "Fn::Join": [
                     "",
                     [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
+                      "arn:aws:apigateway:",
                       {
                         "Ref": "AWS::Region"
                       },
@@ -253,7 +245,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1543551425106": {
+          "ApiGatewayDeployment1543552702404": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -276,26 +268,12 @@
                 ]
               },
               "Action": "lambda:InvokeFunction",
-              "Principal": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "apigateway.",
-                    {
-                      "Ref": "AWS::URLSuffix"
-                    }
-                  ]
-                ]
-              },
+              "Principal": "apigateway.amazonaws.com",
               "SourceArn": {
                 "Fn::Join": [
                   "",
                   [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition"
-                    },
-                    ":execute-api:",
+                    "arn:aws:execute-api:",
                     {
                       "Ref": "AWS::Region"
                     },
@@ -323,7 +301,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionqNMX69JkYmlMfQHeKsyz7jfUoNdOi43RGwHO2qgwc"
+              "Ref": "ApiLambdaVersionaR2xoJbm3CwFq6nzQ4jnXaQbaWDCV5Gwu5Lr7CII"
             }
           },
           "ServiceEndpoint": {
@@ -336,11 +314,7 @@
                   {
                     "Ref": "ApiGatewayRestApi"
                   },
-                  ".execute-api.us-east-2.",
-                  {
-                    "Ref": "AWS::URLSuffix"
-                  },
-                  "/production"
+                  ".execute-api.us-east-2.amazonaws.com/production"
                 ]
               ]
             }
@@ -375,7 +349,6 @@
     "plugins": [
       "serverless-apigw-binary"
     ],
-    "pluginsData": {},
     "functions": {
       "api": {
         "handler": "lambda.universal",
@@ -389,16 +362,13 @@
         ],
         "name": "moviesFE-production-api",
         "package": {},
-        "memory": 192,
-        "timeout": 10,
-        "runtime": "nodejs6.10",
         "vpc": {}
       }
     },
     "artifact": "/Users/benkrig/recommend.me/fe/.serverless/moviesFE.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/moviesFE/production/1543551425093-2018-11-30T04:17:05.093Z",
+    "artifactDirectoryName": "serverless/moviesFE/production/1543552702356-2018-11-30T04:38:22.356Z",
     "artifact": "moviesFE.zip"
   }
 }
