@@ -10,7 +10,6 @@ provider:
   memorySize: 192
   timeout: 10
   stage: production
-  profile: custom-profile
   region: us-east-2
 
 package:
