@@ -6,4 +6,10 @@ before_deploy:
   - npm i
 
 script:
-  - npm run build:serverless:deploy
+  - npm run build:serverless
+
+deploy:
+  provider: script
+  script: npm run deploy
+  on:
+    branch: cit
