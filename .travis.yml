@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- "node"
+
+before_deploy:
+  - npm i
+
+script:
+  - npm run build:serverless:deploy
