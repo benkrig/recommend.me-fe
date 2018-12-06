@@ -1,1 +1,19 @@
-<div class="mat-card">home works</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<div class="search-container" fxLayout="row" fxLayoutAlign="center" style="background: white">
+  <div class="row" style="padding: 90px; margin: 90px">
+      <mat-form-field appearance="outline" style="width: 674px">
+        <mat-label>Search a Movie or an Actor</mat-label>
+        <input matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    <button mat-icon-button style="vertical-align: super">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</div>

@@ -39,6 +39,7 @@ import {
 } from '@angular/material';
 import { DasherComponent } from './dasher/dasher.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -94,6 +95,7 @@ const routes = [
     MatTooltipModule,
     MatTreeModule,
     LayoutModule,
+    FlexLayoutModule
   ],
   exports: [
     RouterModule
