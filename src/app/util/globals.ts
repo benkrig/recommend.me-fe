@@ -1,4 +1,3 @@
-import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
 export const globals = {
@@ -6,12 +5,6 @@ export const globals = {
   API_BASE: 'https://k3jlseejfb.execute-api.us-east-1.amazonaws.com/dev' || 'localhost:5000/api',
   get BASE() {
     return this.API_BASE + this.API_VERSION;
-  },
-
-  // STORAGE
-  STORAGE_KEY: 'Authorization',
-  get JWT() {
-    return localStorage.getItem(this.STORAGE_KEY);
   },
 
   // ENDPOINTS
@@ -25,11 +18,5 @@ export const globals = {
     return {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*'})
     };
-  },
-  get AUTH_HEADERS() {
-    return new HttpHeaders({'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',
-      'Authorization': localStorage.getItem(this.STORAGE_KEY),
-      'Access-Control-Allow-Origin': '*'});
   },
 };

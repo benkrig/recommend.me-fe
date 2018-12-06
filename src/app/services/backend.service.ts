@@ -14,11 +14,11 @@ export class BackendService {
               private snackBar: MatSnackBar) { }
 
   search(q: string, next) {
-    const headers = globals.AUTH_HEADERS;
+    const headers = globals.HEADERS;
 
     const params = new HttpParams().set('q', q);
 
-    this.http.get(globals.BASE + globals.SEARCH, {headers: <HttpHeaders>headers, params: <HttpParams>params}).subscribe(
+    this.http.get(globals.BASE + globals.SEARCH, {params: <HttpParams>params}).subscribe(
       (r: any) => {
         r.user.forEach((j) => {
           JSON.parse(q);
