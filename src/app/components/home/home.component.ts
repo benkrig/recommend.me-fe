@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {BackendService} from '../../services/backend.service';
 
 export interface User {
   name: string;
@@ -13,6 +14,8 @@ export interface User {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('results') results;
+  resultsList: any;
   myControl = new FormControl();
   options: User[] = [
     {name: 'Mary'},
@@ -20,7 +23,8 @@ export class HomeComponent implements OnInit {
     {name: 'Igor'}
   ];
   filteredOptions: Observable<User[]>;
-  constructor() { }
+  constructor(public backendService: BackendService,
+              ) { }
 
   hero_msg = 'We build great websites';
   multi_platform_access_header = 'Provide access across all platforms'.toUpperCase();
@@ -39,6 +43,15 @@ export class HomeComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.name),
         map(name => name ? this._filter(name) : this.options.slice())
       );
+  }
+
+  onSearchChange(q) {
+    this.resultsList = [];
+    if (q) {
+      this.backendService.search(q, (e, r) => {
+        this.resultsList = Array.from(new Set(this.resultsList.concat(r)));
+      });
+    }
   }
 
   displayFn(user?: User): string | undefined {

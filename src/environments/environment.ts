@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-	baseHref: '/'
+  API_BASE: 'https://jsonx-be.herokuapp.com/api',
 };
 
 /*

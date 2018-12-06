@@ -4,18 +4,18 @@
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="clickable"  [routerLink]="['/dashboard']" style="padding-left: 10px; font-family: Trattatello">RECOMMEND ME</span>
+      <button mat-button [routerLink]="['/dashboard']" style="padding-left: 10px; font-family: Trattatello; font-size: larger">RECOMMEND ME</button>
       <span class="fill-remaining-space"></span>
       <span class="menu-spacer"></span>
       <div style="margin-left: auto">
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <button mat-button [routerLink]="['/']">
+        <button mat-button [routerLink]="['/home']">
           <span>Home</span>
         </button>
-        <button mat-button [routerLink]="['/']">
+        <button mat-button [routerLink]="['/about']">
           <span>About</span>
         </button>
-        <button mat-button [routerLink]="['/']">
+        <button mat-button [routerLink]="['/contact-us']">
           <span>Contact us</span>
         </button>
       </div>
@@ -24,13 +24,13 @@
   <mat-sidenav-container class="bg-transparent mh-90">
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <button mat-button class="w-100" [routerLink]="['/']" (click)="sidenav.toggle()">
+        <button mat-button class="w-100" [routerLink]="['/home']" (click)="sidenav.toggle()">
           <span>Home</span>
         </button>
-        <button mat-button class="w-100" [routerLink]="['/']" (click)="sidenav.toggle()">
+        <button mat-button class="w-100" [routerLink]="['/about']" (click)="sidenav.toggle()">
           <span>About</span>
         </button>
-        <button mat-button class="w-100" [routerLink]="['/']" (click)="sidenav.toggle()">
+        <button mat-button class="w-100" [routerLink]="['/contact-us']" (click)="sidenav.toggle()">
           <span>Contact us</span>
         </button>
       </mat-nav-list>
