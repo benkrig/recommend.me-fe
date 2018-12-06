@@ -15,3 +15,7 @@ mat-sidenav-container.mat-drawer-container {
 body {
   margin: 0;
 }
+
+.dark-background{
+  background-color: #202421!important;
+}

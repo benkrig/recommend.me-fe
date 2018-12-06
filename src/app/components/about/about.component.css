@@ -1,0 +1,22 @@
+.contributor-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contributor-card{
+  padding: 8px;
+}
+
+.contributor-image{
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  height: 168px;
+  width: 168px;
+  background-size: cover;
+  background-position: center;
+  margin: 8px auto;
+  border: 2px solid #dbdbdb;
+}

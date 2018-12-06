@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './components/home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
@@ -39,18 +39,25 @@ import {
 } from '@angular/material';
 import { DasherComponent } from './dasher/dasher.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'dash', component: DasherComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'about', component: AboutComponent},
+  { path: 'contact-us', component: ContactUsComponent},
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DasherComponent
+    DasherComponent,
+    ContactUsComponent,
+    AboutComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -94,6 +101,7 @@ const routes = [
     MatTooltipModule,
     MatTreeModule,
     LayoutModule,
+    FlexLayoutModule
   ],
   exports: [
     RouterModule
