@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_BASE: 'https://jsonx-be.herokuapp.com/api',
+  API_BASE: 'https://k3jlseejfb.execute-api.us-east-1.amazonaws.com/dev',
 };
 
 /*
