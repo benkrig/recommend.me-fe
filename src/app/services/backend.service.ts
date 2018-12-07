@@ -69,7 +69,7 @@ export class BackendService {
   }
 
   async getImageUrl(q: string) {
-    const subscriptionKey = 'b61a4d9d560a4ca0a5850f1d23baaa94';
+    const subscriptionKey = '';
     const host = 'https://api.cognitive.microsoft.com';
     const path = '/bing/v7.0/images/search';
     const term = 'tom hanks';
