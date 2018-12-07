@@ -5,15 +5,12 @@
   <div class="row" style="padding: 90px; margin: 90px">
       <mat-form-field appearance="outline" style="width: 674px">
         <mat-label>Search a Movie or an Actor</mat-label>
-        <input matInput [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option.name}}
-          </mat-option>
-        </mat-autocomplete>
+        <input matInput (keyup)="search($event.target.value)">
       </mat-form-field>
     <button mat-icon-button style="vertical-align: super">
       <mat-icon>search</mat-icon>
     </button>
   </div>
 </div>
+<app-dasher></app-dasher>
+

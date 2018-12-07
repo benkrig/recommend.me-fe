@@ -19,3 +19,12 @@ body {
 .dark-background{
   background-color: #202421!important;
 }
+
+.w-100 {
+  width: 100% !important;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

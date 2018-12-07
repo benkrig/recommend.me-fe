@@ -8,7 +8,7 @@
   padding: 8px;
 }
 
-.contributor-image{
+.contributor-image-salvo{
   display: flex;
   justify-content: center;
   border-radius: 50%;
@@ -19,4 +19,5 @@
   background-position: center;
   margin: 8px auto;
   border: 2px solid #dbdbdb;
+  background-image: url("/src/assets/images/salvatorenicosia.jpeg");
 }
