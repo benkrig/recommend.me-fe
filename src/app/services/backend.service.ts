@@ -27,6 +27,24 @@ export class BackendService {
               private snackBar: MatSnackBar) { }
 
   search(q: string, next) {
+    const subscriptionKey = 'b61a4d9d560a4ca0a5850f1d23baaa94';
+    const host = 'https://api.cognitive.microsoft.com';
+    const path = '/bing/v7.0/images/search';
+    const term = 'tom hanks';
+
+
+    const request_params = {
+      method : 'GET',
+      hostname : host,
+      path : host + path + '?q=' + encodeURIComponent(term),
+      headers : new HttpHeaders({
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+      })
+    };
+
+    this.http.get(request_params.path, {headers: request_params.headers}).subscribe((r: any) => {
+      console.log(r);
+    });
     const headers = globals.HEADERS;
     const params = new HttpParams().set('q', q);
 
@@ -47,6 +65,27 @@ export class BackendService {
     this.snackBar.dismiss();
     this.snackBar.open(message, null, {
       duration: duration || 2000,
+    });
+  }
+
+  async getImageUrl(q: string) {
+    const subscriptionKey = 'b61a4d9d560a4ca0a5850f1d23baaa94';
+    const host = 'https://api.cognitive.microsoft.com';
+    const path = '/bing/v7.0/images/search';
+    const term = 'tom hanks';
+
+
+    const request_params = {
+      method : 'GET',
+      hostname : host,
+      path : host + path + '?q=' + encodeURIComponent(term),
+      headers : new HttpHeaders({
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+      })
+    };
+
+    this.http.get(request_params.path, {headers: request_params.headers}).subscribe((r: any) => {
+      return r.value[0].contentUrl;
     });
   }
 }

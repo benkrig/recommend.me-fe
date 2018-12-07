@@ -6,6 +6,12 @@
           <mat-card-title>
             {{card.title}}
           </mat-card-title>
+          <mat-card-subtitle style="text-align: left !important;" *ngIf="card.title === 'Movies'">
+            {{card.movies.length + " found"}}
+          </mat-card-subtitle>
+          <mat-card-subtitle style="text-align: left !important;" *ngIf="card.title === 'People'">
+            {{card.persons.length + " found"}}
+          </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
 
@@ -40,7 +46,8 @@
             <mat-grid-tile *ngFor="let person of card.persons" [colspan]="2" [rowspan]="1">
               <mat-card class="dashboard-card">
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
+                  <div mat-card-avatar class="example-header-image">
+                  </div>
                   <mat-card-title>
                     {{person.name}}
                     <mat-card-subtitle style="text-align: left !important;">

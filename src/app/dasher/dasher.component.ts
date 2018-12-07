@@ -29,23 +29,24 @@ export class DasherComponent {
   updateCards() {
     const response = this.backend.response;
 
+
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
       map(({ matches }) => {
         if (matches) {
           return [
-            { title: 'Movies', cols: 1, rows: response.movies.length, movies: response.movies},
-            { title: 'People', cols: 1, rows: response.actors.length, persons: response.actors}
+            { title: 'Movies', cols: 1, rows: response.movies.length || 1, movies: response.movies},
+            { title: 'People', cols: 1, rows: response.actors.length || 1, persons: response.actors}
           ];
         }
 
         return [
-          { title: 'Movies', cols: 1, rows: response.movies.length, movies: response.movies},
-          { title: 'People', cols: 1, rows: response.actors.length, persons: response.actors}
+          { title: 'Movies', cols: 1, rows: response.movies.length || 1, movies: response.movies},
+          { title: 'People', cols: 1, rows: response.actors.length || 1, persons: response.actors}
         ];
       })
     );
   }
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private backend: BackendService) {}
+              public backend: BackendService) {}
 }
