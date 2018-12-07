@@ -1,10 +1,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-
-<div class="search-container" fxLayout="row" fxLayoutAlign="center" style="background: white">
-  <div class="row" style="padding: 90px; margin: 90px">
-      <mat-form-field appearance="outline" style="width: 674px">
-        <mat-label>Search a Movie or an Actor</mat-label>
+<div class="search-container" fxLayout="row" fxLayoutAlign="center" style="background-image: url('http://i.imgur.com/mnjyN8d.jpg'); background-size: contain" >
+  <div class="row" style="padding: 100px; margin: 100px">
+      <mat-form-field appearance="outline" style="width: 674px; height: 65px; background: black; border-radius: 10px; padding-bottom: 0">
+        <mat-label style="color: white">Search a Movie or an Actor</mat-label>
         <input matInput [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -12,7 +11,7 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-    <button mat-icon-button style="vertical-align: super">
+    <button mat-icon-button style="vertical-align: super; background: white">
       <mat-icon>search</mat-icon>
     </button>
   </div>
